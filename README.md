@@ -18,7 +18,7 @@ Scaffold
 - can define AppBar, Drawer, BottomNavigationBar, FloatingActionButton (FAB)
 - background color
 
-### Widgets - Container and Text
+### Container and Text
 
 Container
 
@@ -37,7 +37,7 @@ Text
 - has default styling
 - styling can be changed via `style` parameter
 
-### Widgets - Column, Padding, SizedBox
+### Column, Padding, SizedBox
 
 Column
 
@@ -54,7 +54,7 @@ SizedBox
 - a box defined only by size
 - can be used as a placeholder between elements
 
-### Widgets - Row, Flexible, Expanded
+### Row, Flexible, Expanded
 
 Row
 
@@ -71,3 +71,31 @@ Expanded
 
 - special form of `Flexible` widget (`fit: Flexible.tight`)
 - uses the _available_ space given by flex
+
+### Image, Stack; Assets
+
+Assets
+
+- add to _pubspec.yaml_ to be able to load
+- aun `flutter pub get` after changes to pubspec.yaml
+
+Image
+
+- can load pictures from _assets_ or _network_
+- use `fit: BoxFit.cover` most of the cases to fit properly the image
+- to make it rounded use `CircularAvatar`
+- for all other forms you can use `Container` with `ClipRRect`
+
+Stack
+
+- used to add third dimension to your layout
+- to place widgets you can use `Align` and `Positioned`
+
+### SingleChildScrollView
+
+SingleChildScrollView
+
+- gives his child a `ScrollPhysics`
+- only active if space is not enough
+- Android and iOS use different physics
+- Do **not use Expanded** in a `ScrollViewWidget` on the scroll axis
