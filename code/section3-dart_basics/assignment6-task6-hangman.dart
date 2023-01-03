@@ -29,6 +29,16 @@
 // t
 // Word: laptop, lives (8), game on (false), game win (true)
 // See you soon
+//
+// Review:
+//
+// Lovely soultion, i like how you split up the different classes and how you use them.
+// its great to see that you have added additional functionality, like adding a number for revealed letters.
+// But there it would be useful to use named constructors, then everyone understand it directly, for what the 3 is used for.
+//
+// I was only confused about the words, that it was not one of _kWords and you have given a new array for it. so i would suggest that you move the kWords to top of the class and use it to create your HangmanPresenter or remove it.
+// You have a good documentation inside your code, keep this for your next projects.
+//
 
 import 'dart:async';
 import 'dart:io';

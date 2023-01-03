@@ -1,7 +1,11 @@
 // Task F1: Quiz poker
 // Dart & Flutter - Zero to Mastery [2023] + Clean Architecture on Udemy
 // Author: Atanas (Tony) Hristov
-
+//
+// Review:
+//
+// Thank you for your solution, i like that you have used a sliver list, what was the reason that you used it?
+//
 import 'package:flutter/material.dart';
 
 // DRY constants

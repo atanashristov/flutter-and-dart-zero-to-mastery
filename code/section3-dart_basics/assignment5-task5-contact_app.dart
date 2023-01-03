@@ -7,6 +7,17 @@
 // The user can decide to display all existing customers
 // The user can delete a specific customer
 // If no customer exist, give the user a hint
+//
+// Review:
+//
+// Good solution, i like that you used a own ContactList class with a to string function
+// for displaying all information and implementing the add delete functions there.
+//
+// I am not sure if it is needed to have a setter for each parameter in your Contact class.
+//
+// The two do whiles are looking wired, but they do what they should do,
+// i would maybe move it into one do while and check it at the end.
+//
 
 import 'dart:io';
 
@@ -45,20 +56,18 @@ or enter to exit
 }
 
 Contact enterContact() {
-  String name = '';
-  String email;
-  do {
-    name = getInput('Enter name');
-  } while (name.isEmpty);
-  do {
-    email = getInput('Enter email');
-  } while (email.isEmpty);
+  String name = getInput('Enter name');
+  String email = getInput('Enter email');
   return Contact(name: name, email: email);
 }
 
 String getInput(String prompt) {
-  print(prompt);
-  return stdin.readLineSync()?.trim() ?? '';
+  String result = '';
+  while (result.isEmpty) {
+    print(prompt);
+    result = stdin.readLineSync()?.trim() ?? '';
+  }
+  return result;
 }
 
 class ContactList {
