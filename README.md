@@ -98,4 +98,14 @@ SingleChildScrollView
 - gives his child a `ScrollPhysics`
 - only active if space is not enough
 - Android and iOS use different physics
-- Do **not use Expanded** in a `ScrollViewWidget` on the scroll axis
+- do **not use Expanded** in a `ScrollViewWidget` on the scroll axis
+
+### MediaQuery
+
+MediaQuery
+
+- uses the _information from context_ to get the screen size
+- information comes _from MaterialApp widget_
+- helps us to _build_ widgets _depending on screen size_
+
+When you provide data to child widget but it cannot use it and throw an error, wrap the child widget into a widget class and use it instead.

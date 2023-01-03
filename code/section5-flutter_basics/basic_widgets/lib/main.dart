@@ -76,7 +76,7 @@ class ColumnsExample extends StatelessWidget {
       child: Container(
         // height: 200,
         // width: 200,
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -178,6 +178,28 @@ class ColumnsExample extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Container(
+                color: Colors.green,
+                width: MediaQuery.of(context).size.width,
+                height: 100,
+                child: const Center(
+                  child: Text('MediaQuery example'),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const MediaQueryExample(),
+              const SizedBox(height: 20),
+              Builder(
+                builder: (context) => Container(
+                  color: Colors.green,
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  child: const Center(
+                    child: Text('MediaQuery example'),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
                 height: 500,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 color: Colors.green,
@@ -197,6 +219,26 @@ class ColumnsExample extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MediaQueryExample extends StatelessWidget {
+  const MediaQueryExample({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    return Container(
+      color: Colors.green,
+      width: size.width / 2,
+      height: size.height / 5,
+      child: const Center(
+        child: Text('MediaQuery example'),
       ),
     );
   }
