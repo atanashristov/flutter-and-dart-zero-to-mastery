@@ -1,4 +1,5 @@
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/builder_with_media_query_example.dart';
+import 'package:basic_widgets/ui/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/first_column_child.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/layout_builder_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/media_query_example.dart';
@@ -58,6 +59,8 @@ class WidgetExamplesBody extends StatelessWidget {
               SizedBox(height: 20),
               TonyAvatar(),
               SizedBox(height: 20),
+              ButtonsExample(),
+              SizedBox(height: 20),
               MediaQueryExample(),
               SizedBox(height: 20),
               BuilderWithMediaQueryExample(),
@@ -65,6 +68,7 @@ class WidgetExamplesBody extends StatelessWidget {
               LayoutBuilderExample(),
               SizedBox(height: 20),
               VeryTallContainer(),
+              SizedBox(height: 20),
               // SingleChildScrollView CAN ONLY contain element with fixed size
               // const Expanded(child: Text('Hi')),
             ],
