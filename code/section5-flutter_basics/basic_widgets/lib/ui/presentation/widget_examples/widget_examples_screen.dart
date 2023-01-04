@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:basic_widgets/ui/presentation/components/custom_button_ink.dart';
+import 'package:basic_widgets/ui/presentation/components/custom_button_gesture.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/builder_with_media_query_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/first_column_child.dart';
@@ -48,27 +52,52 @@ class WidgetExamplesBody extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              SizedBox(height: 20),
-              RowExpandedAndFlexibleExample(),
-              FirstColumnChild(),
-              SizedBox(height: 20),
-              SecondColumnChild(),
-              SizedBox(height: 20),
-              TonyImage(),
-              SizedBox(height: 20),
-              TonyAvatar(),
-              SizedBox(height: 20),
-              ButtonsExample(),
-              SizedBox(height: 20),
-              MediaQueryExample(),
-              SizedBox(height: 20),
-              BuilderWithMediaQueryExample(),
-              SizedBox(height: 20),
-              LayoutBuilderExample(),
-              SizedBox(height: 20),
-              VeryTallContainer(),
-              SizedBox(height: 20),
+            children: [
+              const SizedBox(height: 20),
+              const RowExpandedAndFlexibleExample(),
+              const FirstColumnChild(),
+              const SizedBox(height: 20),
+              const SecondColumnChild(),
+              const SizedBox(height: 20),
+              const TonyImage(),
+              const SizedBox(height: 20),
+              const TonyAvatar(),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButtonInk(
+                    onTap: () {
+                      log('CustomButton pressed');
+                    },
+                    icon: Icons.home,
+                    iconColor: Colors.white,
+                    bgColorStart: Colors.yellow,
+                    bgColorEnd: Colors.blue,
+                  ),
+                  const SizedBox(width: 32.0),
+                  CustomButtonGesture(
+                    onTap: () {
+                      log('CustomButtonGesture pressed');
+                    },
+                    text: "CustomButtonGesture example",
+                    textColor: Colors.white,
+                    bgColorStart: Colors.yellow,
+                    bgColorEnd: Colors.blue,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              const ButtonsExample(),
+              const SizedBox(height: 20),
+              const MediaQueryExample(),
+              const SizedBox(height: 20),
+              const BuilderWithMediaQueryExample(),
+              const SizedBox(height: 20),
+              const LayoutBuilderExample(),
+              const SizedBox(height: 20),
+              const VeryTallContainer(),
+              const SizedBox(height: 20),
               // SingleChildScrollView CAN ONLY contain element with fixed size
               // const Expanded(child: Text('Hi')),
             ],
