@@ -178,7 +178,7 @@ class ColumnsExample extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Container(
-                color: Colors.green,
+                color: Colors.teal,
                 width: MediaQuery.of(context).size.width,
                 height: 100,
                 child: const Center(
@@ -194,19 +194,58 @@ class ColumnsExample extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: 100,
                   child: const Center(
-                    child: Text('MediaQuery example'),
+                    child: Text('Builder example'),
                   ),
                 ),
               ),
               const SizedBox(height: 20),
               Container(
-                height: 500,
+                height: 300,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: Colors.pink.shade100,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    // Container within Container fills the whole space of the parent,
+                    // so, wrap the child Container in a Center
+                    return Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.pink,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        width: constraints.maxWidth - 30,
+                        height: constraints.maxHeight - 30,
+                        child: const Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                            child: Text(
+                              'LayoutBuilder example, so I depend on my parent constraints',
+                              style: TextStyle(
+                                color: Colors.cyan,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                height: 1000,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 color: Colors.green,
                 child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
-                    'Third column child',
+                    'I am too long to fit, so I need a scrollable content, so SingleChildScrollView is just fine.',
                     style: TextStyle(
                       color: Colors.yellow,
                       fontSize: 20,
@@ -238,7 +277,10 @@ class MediaQueryExample extends StatelessWidget {
       width: size.width / 2,
       height: size.height / 5,
       child: const Center(
-        child: Text('MediaQuery example'),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+          child: Text('MediaQuery extracted to component example'),
+        ),
       ),
     );
   }

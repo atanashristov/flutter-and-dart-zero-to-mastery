@@ -109,3 +109,12 @@ MediaQuery
 - helps us to _build_ widgets _depending on screen size_
 
 When you provide data to child widget but it cannot use it and throw an error, wrap the child widget into a widget class and use it instead.
+
+### LayoutBuilder
+
+LayoutBuilder
+
+- has its own context and constraints in the builder function
+- uses the constraints from parent widget
+- we can create Layouts depending on size of the parent widget
+- if parent size changes, the `LayoutBuilder` will build the children depending on the new constraints
