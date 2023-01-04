@@ -21,7 +21,7 @@
 // Great solution, it works as expected. the code is good to read.
 // I like that you  check the input variable.
 //
-// I would only move the output prints into a own function to have it more seperated.
+// I would only move the output prints into a own function to have it more separated.
 // and i do not like the while(true) statement, it can result in endless running programs
 // and i would use own variable that can be checked there.
 //
@@ -45,7 +45,7 @@ void main() {
 
     // Based on the user input, see what is the turn result (what is to do next).
     turnResult = getTurnResult(guess, randomNumber);
-    final turnResultMessage = turnResult.responseToGameTurn;
+    final turnResultMessage = turnResult.title;
 
     // If there is a message based on the turn result, print it out.
     if (turnResultMessage != null) {
@@ -71,43 +71,53 @@ GameTurnResult getTurnResult(int? guessNumber, int randomNumber) {
 /// Contains result of a game turn
 enum GameTurnResult {
   /// Initial status, before first turn (user has to play)
-  undefined,
+  undefined(null),
 
   /// Empty input, user wants to exit
-  empty,
+  empty('See you soon'),
 
   /// The number the user gave is a match
-  match,
+  match('Bingo! This is the right number'),
 
   /// The number the user gave is too low
-  noMatchTooLow,
+  noMatchTooLow('Too low, try again'),
 
   /// The number the user gave is too hight
-  noMatchTooHigh,
+  noMatchTooHigh('Too high, try again'),
+  ;
+
+  final String? title;
+
+  const GameTurnResult(this.title);
+
+  bool get keepPlaying => [GameTurnResult.empty, GameTurnResult.match].contains(this) == false;
 }
 
 /// Contains extension methods on [GameTurnResult]
-extension GameTurnResultExtension on GameTurnResult {
-  /// Returns a string to inform the user about the turn result
-  String? get responseToGameTurn {
-    switch (this) {
-      case GameTurnResult.empty:
-        return 'See you soon';
-      case GameTurnResult.match:
-        return 'Bingo! This is the right number';
-      case GameTurnResult.noMatchTooLow:
-        return 'Too low, try again';
-      case GameTurnResult.noMatchTooHigh:
-        return 'Too high, try again';
-      default:
-        return null;
-    }
-  }
+///
+/// Note: This is not needed with the new enhanced Dart enums
+/// See: https://www.woolha.com/tutorials/dart-enhanced-enums-with-members-examples
+// extension GameTurnResultExtension on GameTurnResult {
+//   /// Returns a string to inform the user about the turn result
+//   String? get title {
+//     switch (this) {
+//       case GameTurnResult.empty:
+//         return 'See you soon';
+//       case GameTurnResult.match:
+//         return 'Bingo! This is the right number';
+//       case GameTurnResult.noMatchTooLow:
+//         return 'Too low, try again';
+//       case GameTurnResult.noMatchTooHigh:
+//         return 'Too high, try again';
+//       default:
+//         return null;
+//     }
+//   }
 
-  /// Returns whether to keep playing and ask for another guess or if false - exit the game.
-  /// Note: Only exit if the result of the game turn is a match or user enter empty string.
-  bool get keepPlaying => [GameTurnResult.empty, GameTurnResult.match].contains(this) == false;
-}
+//   /// Returns whether to keep playing and ask for another guess or if false - exit the game.
+//   /// Note: Only exit if the result of the game turn is a match or user enter empty string.
+//   bool get keepPlaying => [GameTurnResult.empty, GameTurnResult.match].contains(this) == false;
+// }
 
 /// Takes user guess between 0 and [kMax].
 /// Returns null if user wants to exit.
