@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:basic_widgets/ui/presentation/components/custom_button_ink.dart';
 import 'package:basic_widgets/ui/presentation/components/custom_button_gesture.dart';
+import 'package:basic_widgets/ui/presentation/components/person_card.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/builder_with_media_query_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/first_column_child.dart';
@@ -60,6 +61,21 @@ class WidgetExamplesBody extends StatelessWidget {
               const SecondColumnChild(),
               const SizedBox(height: 20),
               const TonyImage(),
+              const SizedBox(height: 20),
+              const PersonCard(
+                  pictureUrl:
+                      'https://media.licdn.com/dms/image/C4E03AQHEQ0sQMrLttg/profile-displayphoto-shrink_800_800/0/1638335024784?e=1678320000&v=beta&t=YMJCF_nLLLWFknM75ByaE7S2tTEX5kRMiuPaGjaFhR4',
+                  name: 'Tony',
+                  age: '53',
+                  country: 'USA',
+                  job: 'Senior Software Engineer II at Alkami.com'),
+              const SizedBox(height: 20),
+              const PersonCard(
+                  pictureUrl: 'http://clipart-library.com/images/ATbjGRjT4.png',
+                  name: 'Alexander Hristov',
+                  age: '19',
+                  country: 'USA',
+                  job: 'A very goosd student'),
               const SizedBox(height: 20),
               const TonyAvatar(),
               const SizedBox(height: 20),
