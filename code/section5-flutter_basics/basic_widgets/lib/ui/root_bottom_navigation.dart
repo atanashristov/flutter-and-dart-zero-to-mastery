@@ -27,8 +27,8 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
       // Can be custom implemented bottom navigation bar, or use `BottomNavigationBar` material component.
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        selectedItemColor: Colors.blue,
-        backgroundColor: Colors.amber.shade300,
+        // selectedItemColor: Colors.blue,
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         onTap: (index) {
           setState(() {
             _currentIndex = index;

@@ -1,6 +1,7 @@
 import 'package:basic_widgets/ui/presentation/navigation_example_screens/screen_one.dart';
 import 'package:basic_widgets/ui/presentation/navigation_example_screens/screen_two.dart';
 import 'package:basic_widgets/ui/root_bottom_navigation.dart';
+import 'package:basic_widgets/ui/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,11 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Basic Widgets',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.amber,
-        ),
-      ),
+      themeMode: ThemeMode.dark,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       routes: <String, WidgetBuilder>{
         // It is hanging if I specify just '/', thereof use '/root'
         '/root': (context) => const RootBottomNavigation(),

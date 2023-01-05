@@ -22,7 +22,7 @@ class PersonCard extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.tealAccent,
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(

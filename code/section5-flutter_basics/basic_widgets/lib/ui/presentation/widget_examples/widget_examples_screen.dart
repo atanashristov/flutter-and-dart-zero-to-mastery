@@ -44,7 +44,8 @@ class WidgetExamplesBody extends StatelessWidget {
         // width: 200,
         padding: const EdgeInsets.symmetric(horizontal: 3),
         decoration: BoxDecoration(
-          color: Colors.white,
+          // This would be the default background color
+          // color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(10),
         ),
         child: SingleChildScrollView(

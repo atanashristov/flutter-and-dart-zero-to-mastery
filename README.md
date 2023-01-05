@@ -225,3 +225,88 @@ IndexedStack
 
 - `Stack` was where we can add element on top of other element
 - `IndexedStack` is same, but the widgets in the stack have index that controls which one is on top
+
+## Theme
+
+Create custom theme file:
+
+```dart
+// code\section5-flutter_basics\basic_widgets\lib\ui\theme.dart
+import 'package:flutter/material.dart';
+
+class AppTheme {
+  AppTheme._();
+
+  static const _kPrimaryColorLight = Colors.lightBlueAccent;
+
+  static const _kPrimaryColorDark = Colors.lightGreenAccent;
+
+  static final ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: _kPrimaryColorLight,
+      brightness: Brightness.light,
+    ),
+  );
+
+  static final ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: _kPrimaryColorDark,
+      brightness: Brightness.dark,
+    ),
+  );
+}
+```
+
+Apply the theme to the `MaterialApp`:
+
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Basic Widgets',
+      themeMode: ThemeMode.dark,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      routes: <String, WidgetBuilder>{
+        // It is hanging if I specify just '/', thereof use '/root'
+        '/root': (context) => const RootBottomNavigation(),
+        '/screenOne': (context) => const ScreenOne(),
+        '/screenTwo': (context) => const ScreenTwo(),
+      },
+      home: const RootBottomNavigation(),
+    );
+  }
+}
+```
+
+Do not use hardcoded colors, use the theme colors instead.
+
+This is an example with `Container` that wraps the whole screen:
+
+```dart
+child: Container(
+  decoration: BoxDecoration(
+    // This would be the default background color
+    // color: Theme.of(context).colorScheme.background,
+...
+```
+
+This is an example with `Container` that wraps the shows a card:
+
+```dart
+  Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
+    return Container(
+      decoration: BoxDecoration(
+        color: themeData.colorScheme.primaryContainer,
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      child: Column(
+```
