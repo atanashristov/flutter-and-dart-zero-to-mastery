@@ -1,3 +1,4 @@
+import 'package:basic_widgets/ui/application/theme_service.dart';
 import 'package:basic_widgets/ui/presentation/components/custom_button_ink.dart';
 import 'package:basic_widgets/ui/presentation/components/custom_button_gesture.dart';
 import 'package:basic_widgets/ui/presentation/components/person_card.dart';
@@ -13,6 +14,7 @@ import 'package:basic_widgets/ui/presentation/widget_examples/widgets/tony_avata
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/tony_image.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/very_tall_container.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class WidgetExamplesScreen extends StatelessWidget {
   const WidgetExamplesScreen({super.key});
@@ -23,10 +25,11 @@ class WidgetExamplesScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Basic Widgets')),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          const snackBar = SnackBar(content: Text('TODO'));
+          Provider.of<ThemeService>(context, listen: false).toggleTheme();
+          const snackBar = SnackBar(content: Text('Changing theme...'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.change_circle),
       ),
       body: const WidgetExamplesBody(),
     );

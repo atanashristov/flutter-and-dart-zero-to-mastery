@@ -18,11 +18,11 @@ class PersonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyleTitleLarge = Theme.of(context).textTheme.titleLarge;
+    final themeData = Theme.of(context);
 
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: themeData.colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(
@@ -47,7 +47,7 @@ class PersonCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
                     name,
-                    style: textStyleTitleLarge,
+                    style: themeData.textTheme.titleLarge,
                   ),
                 ),
               ),

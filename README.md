@@ -310,3 +310,74 @@ This is an example with `Container` that wraps the shows a card:
       ),
       child: Column(
 ```
+
+Links:
+
+- [Material V3](https://m3.material.io/)
+- [Material Theme Builder](https://m3.material.io/theme-builder#/custom)
+- [App Painter Code](https://github.com/zeshuaro/appainter)
+- [App Painter online](https://appainter.dev/#/)
+
+## State Management with Provider
+
+Provider
+
+Create under service that holds data and can notify by extending `ChangeNotifier`.
+
+Call `notifyListeners()` when changing the state.
+
+```dart
+// ui\application\theme_service.dart
+
+import 'package:flutter/material.dart';
+
+class ThemeService extends ChangeNotifier {
+  bool isDarkMode = false;
+
+  void toggleTheme() {
+    isDarkMode != isDarkMode;
+    notifyListeners();
+  }
+}
+```
+
+Wrap the app in `runApp()` with `ChangeNotifierProvider`:
+
+```dart
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeService(),
+      child: const MyApp(),
+    ),
+  );
+}
+```
+
+Then when we need to consume the service data, we wrap that component into a `Consumer<T>` widget and specify the provided provider type:
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<ThemeService>(
+      builder: (context, themeService, child) {
+        return MaterialApp(
+          title: 'Basic Widgets',
+          themeMode: themeService.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+```
+
+Now wqe react on the state. We want to be able to trigger changes by calling the `ThemeService.toggleTheme()`.
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Basic Widgets')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Provider.of<ThemeService>(context, listen: false).toggleTheme();
+```
+
+It goes up the three and finds the nearest provider of the specified type.
+
+If we are not going tp listen for changes here, we have to specify `listen: false`, otherwise if it is `true`, changes in the state will trigger rebuild of this widget.
