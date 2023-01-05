@@ -1,4 +1,4 @@
-import 'package:basic_widgets/ui/presentation/widget_examples/widget_examples_screen.dart';
+import 'package:basic_widgets/ui/presentation/counter/counter_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Basic Widgets',
-        theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.amber,
-          ),
+      title: 'Basic Widgets',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.amber,
         ),
-        home: const WidgetExamplesScreen());
+      ),
+      home: const CounterScreen(),
+    );
   }
 }

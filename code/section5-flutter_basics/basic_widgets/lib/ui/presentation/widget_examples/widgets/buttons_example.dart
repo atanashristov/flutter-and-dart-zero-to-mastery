@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:basic_widgets/ui/presentation/components/switch_button.dart';
 import 'package:flutter/material.dart';
 
 class ButtonsExample extends StatelessWidget {
@@ -90,12 +91,12 @@ class ButtonsExample extends StatelessWidget {
           icon: const Icon(Icons.save),
         ),
         const SizedBox(height: 20),
-        Switch(
-          value: true, // Needs a stateful widget in order to dynamically set the value
+        SwitchButton(
+          initialState: true,
           onChanged: (value) {
-            log('Switch is now $value');
+            log('SwitchButton is ${value ? "on" : "off"}');
           },
-        ),
+        )
       ],
     );
   }
