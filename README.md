@@ -118,3 +118,103 @@ LayoutBuilder
 - uses the constraints from parent widget
 - we can create Layouts depending on size of the parent widget
 - if parent size changes, the `LayoutBuilder` will build the children depending on the new constraints
+
+### Placeholder, ListView, ListView.builder, ListView.separated, ListTile
+
+Placeholder
+
+- Takes all the available space
+- Put it somewhere temporarily until you come back and develop the widget.
+
+Example:
+
+```dart
+    return Scaffold(
+      appBar: AppBar(title: const Text('Listview Example')),
+      body: const Placeholder(),
+    );
+```
+
+ListView
+
+- Basic `ListView` can be implemented with `SingleChildScrollView` and a `Column` child
+
+ListView.builder
+
+- `ListView.builder` is the _advanced version_ of `ListView`
+- You don't know upfront how long it is, but you want to display it all
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Listview Example')),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              color: Colors.blue,
+              height: 100,
+              child: Center(child: Text(index.toString())),
+            ),
+          );
+        },
+      ),
+    );
+  }
+```
+
+ListView.separated
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Listview Example')),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: ListView.separated(
+          itemCount: _kStub.length,
+          itemBuilder: (context, index) {
+            return Container(
+              color: Colors.blue,
+              height: 100,
+              child: Center(child: Text(_kStub[index])),
+            );
+          },
+          separatorBuilder: (context, index) {
+            // return const Divider();
+            return const SizedBox(height: 10);
+          },
+        ),
+      ),
+    );
+  }
+```
+
+ListTile
+
+- normally we use `Container` for items because these are so customizable
+- but, `ListTile` can be handy
+- it implements what normally we want from a list view items
+
+```dart
+return ListTile(
+    tileColor: Colors.grey.shade400,
+    textColor: Colors.black,
+    hoverColor: Colors.yellow,
+    title: Text(
+    _kStub[index],
+    ),
+    subtitle: Text('Item number $index'),
+    leading: Checkbox(
+    value: false,
+    onChanged: (value) {},
+),
+```
+
+**Important**: `ListView.builder` gives **performance benefits** compared to `SingleChildScrollView` with `Column`.
+
+It does not necessarily render all the child elements before we scroll and make these visible on the screen.
