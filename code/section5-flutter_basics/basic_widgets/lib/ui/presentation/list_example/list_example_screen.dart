@@ -11,7 +11,7 @@ class ListExampleScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Listview Example')),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 3),
         child: ListView.separated(
           itemCount: _kStub.length,
           itemBuilder: (context, index) {

@@ -1,8 +1,8 @@
-import 'dart:developer';
-
 import 'package:basic_widgets/ui/presentation/components/custom_button_ink.dart';
 import 'package:basic_widgets/ui/presentation/components/custom_button_gesture.dart';
 import 'package:basic_widgets/ui/presentation/components/person_card.dart';
+import 'package:basic_widgets/ui/presentation/navigation_example_screens/screen_one.dart';
+import 'package:basic_widgets/ui/presentation/navigation_example_screens/screen_two.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/builder_with_media_query_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/first_column_child.dart';
@@ -43,7 +43,7 @@ class WidgetExamplesBody extends StatelessWidget {
       child: Container(
         // height: 200,
         // width: 200,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 3),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -79,12 +79,16 @@ class WidgetExamplesBody extends StatelessWidget {
               const SizedBox(height: 20),
               const TonyAvatar(),
               const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Next 2 buttons demo navigation yay!'),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomButtonInk(
                     onTap: () {
-                      log('CustomButton pressed');
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => const ScreenOne())));
                     },
                     icon: Icons.home,
                     iconColor: Colors.white,
@@ -94,7 +98,7 @@ class WidgetExamplesBody extends StatelessWidget {
                   const SizedBox(width: 32.0),
                   CustomButtonGesture(
                     onTap: () {
-                      log('CustomButtonGesture pressed');
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => const ScreenTwo())));
                     },
                     text: "CustomButtonGesture example",
                     textColor: Colors.white,
