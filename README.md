@@ -218,3 +218,10 @@ return ListTile(
 **Important**: `ListView.builder` gives **performance benefits** compared to `SingleChildScrollView` with `Column`.
 
 It does not necessarily render all the child elements before we scroll and make these visible on the screen.
+
+## BottomNavigationBar, IndexedStack
+
+IndexedStack
+
+- `Stack` was where we can add element on top of other element
+- `IndexedStack` is same, but the widgets in the stack have index that controls which one is on top

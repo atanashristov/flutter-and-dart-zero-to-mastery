@@ -1,4 +1,4 @@
-import 'package:basic_widgets/ui/presentation/list_example/list_example_screen.dart';
+import 'package:basic_widgets/ui/root_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.amber,
         ),
       ),
-      home: const ListExampleScreen(),
+      home: const RootBottomNavigation(),
     );
   }
 }
