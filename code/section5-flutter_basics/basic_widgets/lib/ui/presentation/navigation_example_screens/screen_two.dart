@@ -11,13 +11,28 @@ class ScreenTwo extends StatelessWidget {
         title: const Text('Screen Two'),
         backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => const ScreenOne())));
-          },
-          child: const Text('Go to Screen One'),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          TextButton(
+            child: const Text('Go back'),
+            onPressed: () => Navigator.pop(context),
+          ),
+          TextButton(
+            child: const Text('Pop until home'),
+            onPressed: () => Navigator.popUntil(context, (route) => route.isFirst),
+          ),
+          TextButton(
+            child: const Text('Replace with screen one by route name'),
+            onPressed: () => Navigator.pushReplacementNamed(context, '/screenOne'),
+          ),
+          TextButton(
+            child: const Text('Replace with screen one by MaterialPageRoute'),
+            onPressed: () =>
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => const ScreenOne()))),
+          ),
+        ],
       ),
     );
   }

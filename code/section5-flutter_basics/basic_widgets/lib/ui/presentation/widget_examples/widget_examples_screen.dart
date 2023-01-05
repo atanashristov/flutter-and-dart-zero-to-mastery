@@ -1,7 +1,6 @@
 import 'package:basic_widgets/ui/presentation/components/custom_button_ink.dart';
 import 'package:basic_widgets/ui/presentation/components/custom_button_gesture.dart';
 import 'package:basic_widgets/ui/presentation/components/person_card.dart';
-import 'package:basic_widgets/ui/presentation/navigation_example_screens/screen_one.dart';
 import 'package:basic_widgets/ui/presentation/navigation_example_screens/screen_two.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/builder_with_media_query_example.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widgets/buttons_example.dart';
@@ -88,7 +87,7 @@ class WidgetExamplesBody extends StatelessWidget {
                 children: [
                   CustomButtonInk(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: ((context) => const ScreenOne())));
+                      Navigator.pushNamed(context, '/screenOne');
                     },
                     icon: Icons.home,
                     iconColor: Colors.white,
