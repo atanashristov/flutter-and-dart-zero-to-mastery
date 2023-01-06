@@ -2,6 +2,8 @@
 
 Contains code and notes from studying [Dart & Flutter - Zero to Mastery [2023] + Clean Architecture](https://www.udemy.com/course/flutter-made-easy-zero-to-mastery).
 
+[GitHub repo](https://github.com/OpenSphereSoftware/FlutterMadeEasy_ZeroToMastery)
+
 ## Section 5: Flutter basics
 
 ### MaterialApp and Scaffold
@@ -398,3 +400,7 @@ Now wqe react on the state. We want to be able to trigger changes by calling the
 It goes up the three and finds the nearest provider of the specified type.
 
 If we are not going tp listen for changes here, we have to specify `listen: false`, otherwise if it is `true`, changes in the state will trigger rebuild of this widget.
+
+### Animations
+
+Fluter gives "Animated" versions of widgets. For example `Pading` has corresponding `AnimatedPadding`, `Opacity` has `AnimatedOpacity` etc.

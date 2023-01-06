@@ -1,4 +1,7 @@
 import 'package:basic_widgets/ui/application/theme_service.dart';
+import 'package:basic_widgets/ui/presentation/theme_animation/widgets/moon.dart';
+import 'package:basic_widgets/ui/presentation/theme_animation/widgets/star.dart';
+import 'package:basic_widgets/ui/presentation/theme_animation/widgets/sun.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -50,6 +53,58 @@ class ThemeAnimationScreen extends StatelessWidget {
                   // (*) We can align all the elements like that
                   // alignment: Alignment.bottomCenter,
                   children: [
+                    Positioned(
+                      top: 50,
+                      left: 70,
+                      child: AnimatedOpacity(
+                        opacity: themeService.isDarkMode ? 1 : 0,
+                        duration: const Duration(milliseconds: 800),
+                        child: const Star(),
+                      ),
+                    ),
+                    Positioned(
+                      top: 120,
+                      left: 50,
+                      child: AnimatedOpacity(
+                        opacity: themeService.isDarkMode ? 1 : 0,
+                        duration: const Duration(milliseconds: 800),
+                        child: const Star(),
+                      ),
+                    ),
+                    Positioned(
+                      top: 70,
+                      right: 50,
+                      child: AnimatedOpacity(
+                        opacity: themeService.isDarkMode ? 1 : 0,
+                        duration: const Duration(milliseconds: 500),
+                        child: const Star(),
+                      ),
+                    ),
+                    Positioned(
+                      top: 100,
+                      right: 200,
+                      child: AnimatedOpacity(
+                        opacity: themeService.isDarkMode ? 1 : 0,
+                        duration: const Duration(milliseconds: 200),
+                        child: const Star(),
+                      ),
+                    ),
+                    AnimatedPositioned(
+                      top: themeService.isDarkMode ? 100 : 130,
+                      right: themeService.isDarkMode ? 100 : -40,
+                      duration: const Duration(milliseconds: 400),
+                      child: AnimatedOpacity(
+                        opacity: themeService.isDarkMode ? 1 : 0,
+                        duration: const Duration(milliseconds: 300),
+                        child: const Moon(),
+                      ),
+                    ),
+                    // Animates as soon as any attribute of itself changes
+                    AnimatedPadding(
+                      duration: const Duration(milliseconds: 200),
+                      padding: EdgeInsets.only(top: themeService.isDarkMode ? 120 : 50),
+                      child: const Center(child: Sun()),
+                    ),
                     // (*) or we can specify for single element how to be aligned like so:
                     Align(
                       alignment: Alignment.bottomCenter,
