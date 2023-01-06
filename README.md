@@ -91,6 +91,19 @@ Stack
 - used to add third dimension to your layout
 - to place widgets you can use `Align` and `Positioned`
 
+We have 2 options to align the children of `Stack`:
+
+```dart
+    child: Stack(
+      // (*) We can align all the elements like that
+      // alignment: Alignment.bottomCenter,
+      children: [
+        // (*) or we can specify for single element how to be aligned like so:
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+```
+
 ### SingleChildScrollView
 
 SingleChildScrollView
@@ -118,6 +131,10 @@ LayoutBuilder
 - uses the constraints from parent widget
 - we can create Layouts depending on size of the parent widget
 - if parent size changes, the `LayoutBuilder` will build the children depending on the new constraints
+
+### OrientationBuilder
+
+TODO
 
 ### Placeholder, ListView, ListView.builder, ListView.separated, ListTile
 
@@ -226,7 +243,7 @@ IndexedStack
 - `Stack` was where we can add element on top of other element
 - `IndexedStack` is same, but the widgets in the stack have index that controls which one is on top
 
-## Theme
+### Theme
 
 Create custom theme file:
 
@@ -318,7 +335,7 @@ Links:
 - [App Painter Code](https://github.com/zeshuaro/appainter)
 - [App Painter online](https://appainter.dev/#/)
 
-## State Management with Provider
+### State Management with Provider
 
 Provider
 

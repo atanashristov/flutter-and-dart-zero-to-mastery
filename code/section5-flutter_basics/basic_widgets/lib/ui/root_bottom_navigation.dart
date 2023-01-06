@@ -1,5 +1,6 @@
 import 'package:basic_widgets/ui/presentation/counter/counter_screen.dart';
 import 'package:basic_widgets/ui/presentation/list_example/list_example_screen.dart';
+import 'package:basic_widgets/ui/presentation/theme_animation/theme_animation_screen.dart';
 import 'package:basic_widgets/ui/presentation/widget_examples/widget_examples_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +23,13 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
           WidgetExamplesScreen(),
           CounterScreen(),
           ListExampleScreen(),
+          ThemeAnimationScreen(),
         ],
       ),
       // Can be custom implemented bottom navigation bar, or use `BottomNavigationBar` material component.
       bottomNavigationBar: BottomNavigationBar(
+        // It's weird sometimes, fixed saves the day...
+        type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         // selectedItemColor: Colors.blue,
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
@@ -37,7 +41,7 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            label: 'widget examples',
+            label: 'widget',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
@@ -45,8 +49,9 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            label: 'list example',
+            label: 'list',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.color_lens), label: 'theme')
         ],
       ),
     );
