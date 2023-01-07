@@ -480,3 +480,16 @@ Helpful links:
 Run: `flutter pub run build_runner build -d` to generate mock classes.
 
 See: `test\0_data\datasources\advice_remote_datasource_test.dart` for example
+
+### Unit tests - What we learned
+
+Unit tests:
+
+- Structure of unit test AAA (arrange, act, assert)
+- UseCases, Repositories, DataSources should be tested
+- use `verifyNever` when you want to make sure a method eas not called
+
+Mockito:
+
+- `@GenerateNiceMocks([MockSpec<T>()])` to get mocks for this class
+- `flutter pub run build_runner build -d` to generate mocks
