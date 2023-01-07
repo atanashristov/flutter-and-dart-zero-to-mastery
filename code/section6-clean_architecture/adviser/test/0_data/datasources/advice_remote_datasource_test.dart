@@ -10,7 +10,7 @@ import 'advice_remote_datasource_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<Client>()])
 void main() {
-  group('AdviceRemoteDataSource', () {
+  group('AdviceRemoteDataSourceImpl', () {
     group('should return AdviceModel', () {
       test('when Client response was 200 and has valid data', () async {
         final mockClient = MockClient();

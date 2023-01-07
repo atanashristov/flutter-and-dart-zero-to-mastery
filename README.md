@@ -477,6 +477,6 @@ Helpful links:
 
 ### Using `mockito`
 
-Run: `flutter pub run build_runner build` to generate mock classes.
+Run: `flutter pub run build_runner build -d` to generate mock classes.
 
 See: `test\0_data\datasources\advice_remote_datasource_test.dart` for example
