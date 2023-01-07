@@ -1,7 +1,9 @@
-import 'package:adviser/1_domain/failures/failures.dart';
-import 'package:adviser/1_domain/usecases/advice_usecases.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
+import 'package:adviser/1_domain/failures/failures.dart';
+import 'package:adviser/1_domain/usecases/advice_usecases.dart';
 
 part 'adviser_state.dart';
 
@@ -12,9 +14,11 @@ const _kServerErrorMessage = 'Server error, please try again';
 const _kCacheErrorMessage = 'Oops, cache. Try again';
 
 class AdviserCubit extends Cubit<AdviserCubitState> {
-  AdviserCubit() : super(AdviserInitial());
+  AdviserCubit({
+    required this.adviceUseCases,
+  }) : super(AdviserInitial());
 
-  final AdviceUseCases adviceUseCases = AdviceUseCases();
+  final AdviceUseCases adviceUseCases;
   // could use more use cases..
 
   void adviceRequested() async {

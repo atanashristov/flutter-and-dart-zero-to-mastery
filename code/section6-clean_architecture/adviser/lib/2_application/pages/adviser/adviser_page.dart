@@ -6,6 +6,7 @@ import 'package:adviser/2_application/pages/adviser/widgets/advice_field.dart';
 import 'package:adviser/2_application/pages/adviser/widgets/error_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
 // Wrap the actual page instead of codding the `BlocProvider` inside the page.
@@ -17,7 +18,8 @@ class AdviserPageWrapperProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       // A new fresh instance of the `AdviserBloc` is created every time we open new  `AdviserPage()`
-      create: (context) => AdviserCubit(),
+      create: (context) => GetIt.I<AdviserCubit>(),
+      // create: (context) => sl<AdviserCubit>(), // Or access the variable like this.,
       child: const AdviserPage(),
     );
   }

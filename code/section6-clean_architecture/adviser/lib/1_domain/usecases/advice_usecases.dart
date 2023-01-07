@@ -1,10 +1,13 @@
-import 'package:adviser/0_data/repositories/advice_repo_impl.dart';
 import 'package:adviser/1_domain/entities/advice_entity.dart';
 import 'package:adviser/1_domain/failures/failures.dart';
+import 'package:adviser/1_domain/repositories/advice_repo.dart';
 import 'package:dartz/dartz.dart';
 
 class AdviceUseCases {
-  final adviceRepo = AdviceRepoImpl();
+  final AdviceRepo adviceRepo;
+
+  AdviceUseCases({required this.adviceRepo});
+
   Future<Either<Failure, AdviceEntity>> getAdvice() async {
     // call the repository to get data (failure or data)
     // manipulate the data
