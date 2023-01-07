@@ -485,11 +485,17 @@ See: `test\0_data\datasources\advice_remote_datasource_test.dart` for example
 
 Unit tests:
 
-- Structure of unit test AAA (arrange, act, assert)
-- UseCases, Repositories, DataSources should be tested
+- Structure of unit test AAA (`arrange, act, assert`)
+- `UseCases, Repositories, DataSources` should be tested
 - use `verifyNever` when you want to make sure a method eas not called
 
 Mockito:
 
 - `@GenerateNiceMocks([MockSpec<T>()])` to get mocks for this class
 - `flutter pub run build_runner build -d` to generate mocks
+
+Bloc testing:
+
+- Bloc and Cubit can be tested with `bloc_test` or `test` package
+- `bloc_test` helps you to have the same structure for all bloc tests
+- `mocktail` is used by `bloc_test` and is similar to `mockito`

@@ -9,20 +9,20 @@ part 'adviser_state.dart';
 
 // This messaging should not be cubit dependent.
 // TODO: Refactor to localized strings.
-const _kGeneralErrorMessage = 'Oops, something went wrong. Try again';
-const _kServerErrorMessage = 'Server error, please try again';
-const _kCacheErrorMessage = 'Oops, cache. Try again';
+const _kGeneralErrorMessage = 'Oops. Something went wrong. Try again';
+const _kServerErrorMessage = 'Oops. Server error, please try again';
+const _kCacheErrorMessage = 'Oops. Cache error. Try again';
 
 class AdviserCubit extends Cubit<AdviserCubitState> {
   AdviserCubit({
     required this.adviceUseCases,
-  }) : super(AdviserInitial());
+  }) : super(const AdviserInitial());
 
   final AdviceUseCases adviceUseCases;
   // could use more use cases..
 
   void adviceRequested() async {
-    emit(AdviserStateLoading());
+    emit(const AdviserStateLoading());
     // execute business logic
     // for example get advice
 
