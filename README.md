@@ -475,3 +475,8 @@ Helpful links:
 - [Bloc test, built to work with bloc and mocktail](https://pub.dev/packages/bloc_test)
 - Also plenty of info here - [Bloc library](https://bloclibrary.dev/#/)
 
+### Using `mockito`
+
+Run: `flutter pub run build_runner build` to generate mock classes.
+
+See: `test\0_data\datasources\advice_remote_datasource_test.dart` for example
