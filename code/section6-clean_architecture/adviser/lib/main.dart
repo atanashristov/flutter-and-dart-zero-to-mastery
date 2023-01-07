@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           routes: const <String, WidgetBuilder>{},
-          home: const AdviserPage(),
+          home: const AdviserPageWrapperProvider(),
         );
       },
     );
