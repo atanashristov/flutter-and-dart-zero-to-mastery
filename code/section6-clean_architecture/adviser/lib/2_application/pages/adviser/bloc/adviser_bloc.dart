@@ -11,12 +11,12 @@ class AdviserBloc extends Bloc<AdviserEvent, AdviserState> {
       emit(AdviserStateLoading());
       // execute business logic
       // for example get advice
-      debugPrint('fake get advice triggered');
+      debugPrint('fake get advice triggered from bloc');
       await Future.delayed(const Duration(seconds: 3), () {});
-      debugPrint('fake get advice triggered');
+      debugPrint('fake get advice triggered from bloc');
       emit(const AdviserStateLoaded(advice: 'Please put on warm socks every day in winter!!!'));
       await Future.delayed(const Duration(seconds: 3), () {});
-      debugPrint('fake an error');
+      debugPrint('fake an error from bloc');
       emit(const AdviserStateError(message: 'Oops, not good my man!'));
     });
 

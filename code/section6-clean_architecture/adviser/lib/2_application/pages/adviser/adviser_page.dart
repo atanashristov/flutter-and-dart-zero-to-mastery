@@ -1,6 +1,7 @@
 import 'package:adviser/2_application/core/services/theme_service.dart';
 import 'package:adviser/2_application/core/widgets/custom_button.dart';
-import 'package:adviser/2_application/pages/adviser/bloc/adviser_bloc.dart';
+// import 'package:adviser/2_application/pages/adviser/bloc/adviser_bloc.dart';
+import 'package:adviser/2_application/pages/adviser/cubit/adviser_cubit.dart';
 import 'package:adviser/2_application/pages/adviser/widgets/advice_field.dart';
 import 'package:adviser/2_application/pages/adviser/widgets/error_message.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class AdviserPageWrapperProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       // A new fresh instance of the `AdviserBloc` is created every time we open new  `AdviserPage()`
-      create: (context) => AdviserBloc(),
+      create: (context) => AdviserCubit(),
       child: const AdviserPage(),
     );
   }
@@ -48,7 +49,7 @@ class AdviserPage extends StatelessWidget {
           children: [
             Expanded(
               child: Center(
-                child: BlocBuilder<AdviserBloc, AdviserState>(
+                child: BlocBuilder<AdviserCubit, AdviserCubitState>(
                   builder: (context, state) {
                     if (state is AdviserInitial) {
                       return Text(
@@ -76,7 +77,8 @@ class AdviserPage extends StatelessWidget {
               child: Center(
                 child: CustomButton(
                   caption: 'Get Advice',
-                  onTap: () => BlocProvider.of<AdviserBloc>(context).add(AdviceRequestedEvent()),
+                  // onTap: () => BlocProvider.of<AdviserBloc>(context).add(AdviceRequestedEvent()),
+                  onTap: () => BlocProvider.of<AdviserCubit>(context).adviceRequested(),
                 ),
               ),
             )
