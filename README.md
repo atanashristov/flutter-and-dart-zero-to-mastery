@@ -404,3 +404,74 @@ If we are not going tp listen for changes here, we have to specify `listen: fals
 ### Animations
 
 Fluter gives "Animated" versions of widgets. For example `Pading` has corresponding `AnimatedPadding`, `Opacity` has `AnimatedOpacity` etc.
+
+## Section 7: Testing
+
+See: [Flutter testing page](https://docs.flutter.dev/cookbook/testing)
+
+### Integration tests
+
+Integration tests:
+
+- Run on emulator
+- Low amount of tests
+- Test a complete process of your app
+- Hard to write and long execution time
+- Examples:
+  - Make a deposit
+  - Create account
+
+Helpful links:
+
+- [Integration testing cookbook](https://docs.flutter.dev/cookbook/testing/integration/introduction)
+
+### Golden tests
+
+Golden tests:
+
+- Medium amount of tests
+- Make sure design guidelines are fulfilled
+- Compares the current UI with predefined image
+- Not so hard to write and medium execution time
+- Examples:
+  - Are all button states as expected
+
+Helpful links:
+
+- [How to use Alchemist for Flutter](https://verygood.ventures/blog/alchemist-golden-tests-tutorial)
+- [Golden tests — compare Widgets with Snapshots](https://medium.com/flutter-community/flutter-golden-tests-compare-widgets-with-snapshots-27f83f266cea)
+
+### Widget tests
+
+Widget tests:
+
+- Run on emulator or headless
+- Medium amount of tests
+- Test UI component in different states w/o business logic
+- Not hard to write and medium execution time
+- Examples:
+  - Shows reloading spinner after pull to refresh
+  - No overflow exceptions
+  - Can click on button, can disable it, etc.
+
+Helpful links:
+
+- [Intro to widget testing](https://docs.flutter.dev/cookbook/testing/widget/introduction)
+
+### Unit tests
+
+Unit tests:
+
+- High amount of tests
+- Test only one specific case of the app
+- Easy to write and fast to execute
+- Examples:
+  - Bloc/Cubit tests (business logic)
+  - Utility functions
+
+Helpful links:
+
+- [Intro to unit testing](https://docs.flutter.dev/cookbook/testing/unit/introduction)
+- [Bloc test, built to work with bloc and mocktail](https://pub.dev/packages/bloc_test)
+- Also plenty of info here - [Bloc library](https://bloclibrary.dev/#/)
+
