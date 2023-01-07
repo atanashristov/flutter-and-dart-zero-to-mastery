@@ -13,4 +13,7 @@ class AdviceRequestedEvent extends AdviserEvent {}
 class UserInputExampleEvent extends AdviserEvent {
   final String input;
   const UserInputExampleEvent({required this.input});
+
+  @override
+  List<Object> get props => [input];
 }

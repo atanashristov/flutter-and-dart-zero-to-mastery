@@ -15,10 +15,16 @@ class AdviserStateLoaded extends AdviserState {
   final String advice;
 
   const AdviserStateLoaded({required this.advice});
+
+  @override
+  List<Object> get props => [advice];
 }
 
 class AdviserStateError extends AdviserState {
   final String message;
 
   const AdviserStateError({required this.message});
+
+  @override
+  List<Object> get props => [message];
 }
