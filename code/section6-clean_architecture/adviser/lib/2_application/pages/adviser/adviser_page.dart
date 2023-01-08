@@ -25,7 +25,12 @@ class AdviserPageWrapperProvider extends StatelessWidget {
   }
 }
 
+// This messaging should not be cubit dependent.
+// TODO: Refactor to localized strings.
+const kAdviserPageInitialText = 'Your advice is waiting for you...';
+
 class AdviserPage extends StatelessWidget {
+  static const kInitialText = 'Your advice is waiting for you...';
   const AdviserPage({super.key});
 
   @override
@@ -55,7 +60,7 @@ class AdviserPage extends StatelessWidget {
                   builder: (context, state) {
                     if (state is AdviserInitial) {
                       return Text(
-                        'Your advice is waiting for you...',
+                        kAdviserPageInitialText,
                         style: themeData.textTheme.headline1,
                       );
                     } else if (state is AdviserStateLoading) {

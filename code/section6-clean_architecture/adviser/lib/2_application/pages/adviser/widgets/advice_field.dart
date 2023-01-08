@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AdviceField extends StatelessWidget {
+  static const String kEmptyAdvice = 'What should I do with an empty advice?';
   static final _borderRadius = BorderRadius.circular(15);
 
   final String advice;
@@ -22,7 +23,7 @@ class AdviceField extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           child: Text(
-            '''"$advice"''',
+            advice.isNotEmpty ? '''"$advice"''' : '''"$kEmptyAdvice"''',
             style: themeData.textTheme.bodyText1,
             textAlign: TextAlign.center,
           ),

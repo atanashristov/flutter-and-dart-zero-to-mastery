@@ -481,7 +481,7 @@ Run: `flutter pub run build_runner build -d` to generate mock classes.
 
 See: `test\0_data\datasources\advice_remote_datasource_test.dart` for example
 
-### Unit tests - What we learned
+#### Unit tests - What we learned
 
 Unit tests:
 
@@ -499,3 +499,19 @@ Bloc testing:
 - Bloc and Cubit can be tested with `bloc_test` or `test` package
 - `bloc_test` helps you to have the same structure for all bloc tests
 - `mocktail` is used by `bloc_test` and is similar to `mockito`
+
+### Widget tests
+
+What we learn:
+
+- How to test different view states from our UI
+- How to test components with `flutter_test`
+- What are golden tests and how to write them
+
+What have we learned:
+
+- `find` can be used to find widgets for your test
+- `widgetTester.widget` can be used to get the widget instance and gives you access to the fields
+- With `widgetTester.tap` you can click on buttons
+- `whenListen` and `MockBloc/Cubit` is used when you want to mock your States (both from `bloc_test` package)
+- Try to make your components as dumb as possible for easier testing
