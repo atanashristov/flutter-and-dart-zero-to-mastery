@@ -515,3 +515,46 @@ What have we learned:
 - With `widgetTester.tap` you can click on buttons
 - `whenListen` and `MockBloc/Cubit` is used when you want to mock your States (both from `bloc_test` package)
 - Try to make your components as dumb as possible for easier testing
+
+### Golden testing
+
+Same as widget testing, but there is one special matcher function to match image files `matchesGoldenFile`.
+
+Recommended to only use for small components.
+
+Steps:
+
+- Add golden test, see: `adviser\test\2_application\core\widgets\custom_button_golden_test.dart`
+- Then generate golden images by executing: `flutter test --update-goldens` on the test
+- Then execute the golden test
+
+It creates two folders next to the file with the test:
+
+- `goldens`: when generating the golden images
+- `failures`: when golden tests fail
+
+The goldens do not show text, as the font may differ from platform to platform.
+By default, the Flutter framework uses a font called 'Ahem' which shows squares.
+But we can add custom font (look at the `matchers.dart` file by navigating to it's code from the `matchesGoldenFile` function), search for "flutter_test_config.dart".
+
+We create `test\flutter_test_config.dart` file in the home of the project and load material font from the flutter framework.
+
+Note: shadows have the same problem, as they differ from platform to platform, so the Goldens use .
+
+Recommended: Use the Alchemist package to test and compare images for the platform you are running the test on.
+It separates local abd CI tests, gives easy theme configuration, custom text scaling, etc.
+
+Useful links:
+
+- [matchesGoldenFile function](https://api.flutter.dev/flutter/flutter_test/matchesGoldenFile.html)
+- [Alchemist package](https://pub.dev/packages/alchemist)
+
+What we learned:
+
+- Compares two images pixel by pixel
+- Same structure as widget tests, only uses `matchesGoldenFile`
+- `flutter test --update-goldens` to generate/update your _master images_
+- Be _careful_ with _fonts_ and _shadows_ on different platforms
+- _akchemist_
+  - Own package
+  - Supports own _master images_ for each platform

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String caption;
-  final Function() onTap;
+  final Function()? onTap;
 
   static final _borderRadius = BorderRadius.circular(15);
 
   const CustomButton({
     super.key,
     required this.caption,
-    required this.onTap,
+    this.onTap,
   });
 
   @override
@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: _borderRadius,
-            color: themeData.colorScheme.secondary,
+            color: onTap == null ? themeData.colorScheme.errorContainer : themeData.colorScheme.secondary,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
