@@ -12,15 +12,18 @@ class ErrorMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Wrap(
+      // mainAxisAlignment: MainAxisAlignment.center,
+      direction: Axis.horizontal,
       children: [
-        const Icon(Icons.error, size: 40, color: Colors.redAccent),
+        const Center(child: Icon(Icons.error, size: 40, color: Colors.redAccent)),
         const SizedBox(height: 20),
-        Text(
-          message,
-          style: themeData.textTheme.headline1,
-          textAlign: TextAlign.center,
+        Center(
+          child: Text(
+            message,
+            style: themeData.textTheme.headline1,
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );

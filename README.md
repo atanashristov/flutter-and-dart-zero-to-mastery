@@ -409,37 +409,41 @@ Fluter gives "Animated" versions of widgets. For example `Pading` has correspond
 
 See: [Flutter testing page](https://docs.flutter.dev/cookbook/testing)
 
-### Integration tests
+### Unit tests
 
-Integration tests:
+Unit tests:
 
-- Run on emulator
-- Low amount of tests
-- Test a complete process of your app
-- Hard to write and long execution time
+- High amount of tests
+- Test only one specific case of the app
+- Easy to write and fast to execute
 - Examples:
-  - Make a deposit
-  - Create account
+  - Bloc/Cubit tests (business logic)
+  - Utility functions
 
 Helpful links:
 
-- [Integration testing cookbook](https://docs.flutter.dev/cookbook/testing/integration/introduction)
+- [Intro to unit testing](https://docs.flutter.dev/cookbook/testing/unit/introduction)
+- [Bloc test, built to work with bloc and mocktail](https://pub.dev/packages/bloc_test)
+- Also plenty of info here - [Bloc library](https://bloclibrary.dev/#/)
 
-### Golden tests
+Using `mockito`:
 
-Golden tests:
+- Run: `flutter pub run build_runner build -d` to generate mock classes.
+- See: `test\0_data\datasources\advice_remote_datasource_test.dart` for example
+- `@GenerateNiceMocks([MockSpec<T>()])` to get mocks for this class
+- `flutter pub run build_runner build -d` to generate mocks
 
-- Medium amount of tests
-- Make sure design guidelines are fulfilled
-- Compares the current UI with predefined image
-- Not so hard to write and medium execution time
-- Examples:
-  - Are all button states as expected
+Unit tests:
 
-Helpful links:
+- Structure of unit test AAA (`arrange, act, assert`)
+- `UseCases, Repositories, DataSources` should be tested
+- use `verifyNever` when you want to make sure a method eas not called
 
-- [How to use Alchemist for Flutter](https://verygood.ventures/blog/alchemist-golden-tests-tutorial)
-- [Golden tests — compare Widgets with Snapshots](https://medium.com/flutter-community/flutter-golden-tests-compare-widgets-with-snapshots-27f83f266cea)
+Bloc testing:
+
+- Bloc and Cubit can be tested with `bloc_test` or `test` package
+- `bloc_test` helps you to have the same structure for all bloc tests
+- `mocktail` is used by `bloc_test` and is similar to `mockito`
 
 ### Widget tests
 
@@ -458,50 +462,6 @@ Helpful links:
 
 - [Intro to widget testing](https://docs.flutter.dev/cookbook/testing/widget/introduction)
 
-### Unit tests
-
-Unit tests:
-
-- High amount of tests
-- Test only one specific case of the app
-- Easy to write and fast to execute
-- Examples:
-  - Bloc/Cubit tests (business logic)
-  - Utility functions
-
-Helpful links:
-
-- [Intro to unit testing](https://docs.flutter.dev/cookbook/testing/unit/introduction)
-- [Bloc test, built to work with bloc and mocktail](https://pub.dev/packages/bloc_test)
-- Also plenty of info here - [Bloc library](https://bloclibrary.dev/#/)
-
-### Using `mockito`
-
-Run: `flutter pub run build_runner build -d` to generate mock classes.
-
-See: `test\0_data\datasources\advice_remote_datasource_test.dart` for example
-
-#### Unit tests - What we learned
-
-Unit tests:
-
-- Structure of unit test AAA (`arrange, act, assert`)
-- `UseCases, Repositories, DataSources` should be tested
-- use `verifyNever` when you want to make sure a method eas not called
-
-Mockito:
-
-- `@GenerateNiceMocks([MockSpec<T>()])` to get mocks for this class
-- `flutter pub run build_runner build -d` to generate mocks
-
-Bloc testing:
-
-- Bloc and Cubit can be tested with `bloc_test` or `test` package
-- `bloc_test` helps you to have the same structure for all bloc tests
-- `mocktail` is used by `bloc_test` and is similar to `mockito`
-
-### Widget tests
-
 What we learn:
 
 - How to test different view states from our UI
@@ -516,7 +476,21 @@ What have we learned:
 - `whenListen` and `MockBloc/Cubit` is used when you want to mock your States (both from `bloc_test` package)
 - Try to make your components as dumb as possible for easier testing
 
-### Golden testing
+### Golden tests
+
+Golden tests:
+
+- Medium amount of tests
+- Make sure design guidelines are fulfilled
+- Compares the current UI with predefined image
+- Not so hard to write and medium execution time
+- Examples:
+  - Are all button states as expected
+
+Helpful links:
+
+- [How to use Alchemist for Flutter](https://verygood.ventures/blog/alchemist-golden-tests-tutorial)
+- [Golden tests — compare Widgets with Snapshots](https://medium.com/flutter-community/flutter-golden-tests-compare-widgets-with-snapshots-27f83f266cea)
 
 Same as widget testing, but there is one special matcher function to match image files `matchesGoldenFile`.
 
@@ -558,3 +532,33 @@ What we learned:
 - _akchemist_
   - Own package
   - Supports own _master images_ for each platform
+
+### Integration tests
+
+Integration tests:
+
+- Run on emulator
+- Low amount of tests
+- Test a complete process of your app
+- Hard to write and long execution time
+- Examples:
+  - Make a deposit
+  - Create account
+
+Helpful links:
+
+- [Integration testing cookbook](https://docs.flutter.dev/cookbook/testing/integration/introduction)
+
+Create in a separate folder `/integraton_test`, as we want to run them separate from the unit & widget tests.
+
+Needs the `integration_test` dev dependency from the flutter framework.
+
+Run it with `flutter test integration_test`
+
+What have we learned:
+
+- Top of the testing pyramid
+- Are _end-to-end_ tests (no mocks)
+- Running on a _real device_ or _emulator device_
+- Should be placed in a _separate folder_
+- You need to add the `integration_test` package to dev dependencies in your pubspec.yaml
